@@ -22,8 +22,6 @@ export const LoaderContextProvider = LoaderContext.Provider;
 
 export const LoaderProvider: FC = ({ children }) => {
   const [isLoading, setLoading] = useState(false);
-  const _file: string;
-  const test = () => {};
 
   const value = useMemo(
     () => ({
