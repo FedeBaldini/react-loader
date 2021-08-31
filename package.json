@@ -1,8 +1,27 @@
 {
-  "name": "react-loader",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-loader-ts",
+  "version": "0.1.2",
+  "private": false,
+  "author": "Federico Baldini",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedeBaldini/react-loader.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "spinner",
+    "loader",
+    "context"
+  ],
+  "main": "build/index.ts",
+  "module": "build/index.ts",
+  "files": [
+    "build",
+    "README.md"
+  ],
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -18,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf build && NODE_ENV=production babel src --out-dir build --copy-files",
     "compile": "tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -43,6 +62,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
     "@testing-library/react-hooks": "^7.0.2",
     "husky": ">=6",
     "lint-staged": ">=10",
