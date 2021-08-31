@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "compile": "tsc",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,12 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^7.0.2"
+    "@testing-library/react-hooks": "^7.0.2",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.3.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,scss,css,md}": "prettier --write"
   }
 }
