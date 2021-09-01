@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
 import { act, renderHook } from "@testing-library/react-hooks";
 
-import { useLoader } from "../useLoader";
-import { LoaderProvider } from "../../LoaderContext";
+import { LoaderProvider } from "../contexts";
+import { useLoader } from "../hooks/useLoader";
 
 describe("hooks / useLoader", () => {
   const Wrapper: FC<{ children?: ReactNode }> = ({ children }) => {

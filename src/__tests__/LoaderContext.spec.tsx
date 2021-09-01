@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
+import { LoaderProvider } from "../contexts";
 import { useLoader } from "../hooks";
-import { LoaderProvider } from "../LoaderContext";
 
 const MockApp: FC = () => {
   const { isLoading, setLoading } = useLoader();
