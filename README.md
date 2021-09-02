@@ -55,9 +55,7 @@ function App() {
 export default App;
 ```
 
-## Component configuration
-
-### Loader
+## Loader component configuration
 
 | Property  | Type | Optional | Default | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -77,6 +75,6 @@ import { Loader, Variant } from "react-loader-ts";
   containerClassName="custom-container-class"
   containerStyle={{ backgroundColor: "red" }}
   loaderClassName="custom-loader-class"
-  loaderStyle={{ width: "50px }}
+  loaderStyle={{ width: "50px" }}
  />
 ```
