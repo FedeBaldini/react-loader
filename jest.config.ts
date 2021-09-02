@@ -24,7 +24,8 @@ export default {
     "!src/**/*.css",
     "!src/**/*.d.ts",
     "!src/**/*.stories.tsx",
-    "!src/index.tsx",
+    "!src/**/index.tsx",
+    "!src/**/index.ts",
   ],
 
   // The directory where Jest should output its coverage files
