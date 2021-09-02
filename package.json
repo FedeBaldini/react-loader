@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "0.3.6",
+  "version": "0.3.11",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -8,6 +8,12 @@
   "author": "Federico Baldini",
   "license": "MIT",
   "private": false,
+  "files": [
+    "/lib",
+    "!/lib/**/__tests__",
+    "!/lib/**/__mocks__",
+    "!/lib/**/stories"
+  ],
   "keywords": [
     "react",
     "typescript",
