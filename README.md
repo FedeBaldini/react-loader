@@ -13,6 +13,10 @@ https://www.npmjs.com/package/react-loader-ts
 ### Using npm
 ```npm install --save react-loader-ts```
 
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/55654811/131927627-3678fcd6-34d4-4bc3-9504-325235a0a531.gif)
+
+
 ## Uasage
 
 Here is a quick example on how to use the **react-loader-ts** library:
