@@ -25,7 +25,6 @@
     "build": "yarn clean && yarn build:esm && yarn build:cjs",
     "build:esm": "tsc && yarn copy-files:esm",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs && yarn copy-files:cjs",
-    "publish": "yarn build && npm publish --access public",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky install",
