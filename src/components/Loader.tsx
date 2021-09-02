@@ -1,6 +1,5 @@
 import { CSSProperties, FC } from "react";
 
-import "./Loader.css";
 
 export interface Props {
   className?: string;

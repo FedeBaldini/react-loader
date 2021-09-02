@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -14,17 +14,26 @@
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
+    "jest": "^27.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   }
 }
