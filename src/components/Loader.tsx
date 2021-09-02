@@ -1,5 +1,4 @@
 import { CSSProperties, FC } from "react";
-import classNames from "classnames";
 
 import "./Loader.css";
 
@@ -10,7 +9,7 @@ export interface Props {
 
 export const Loader: FC<Props> = ({ className, style }) => (
   <div
-    className={classNames("loader", className)}
+    className={`loader ${className}`}
     style={style}
     data-testid="Loader"
   />
