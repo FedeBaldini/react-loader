@@ -2,6 +2,8 @@
 
 `react-loader-ts` provides a customizable Loader component and a LoaderContext to handle the loader state for the whole application.
 
+https://www.npmjs.com/package/react-loader-ts
+
 ## Installation
 
 ### Using yarn
