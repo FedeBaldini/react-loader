@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -10,6 +10,13 @@
   "private": false,
   "files": [
     "/lib"
+  ],
+  "keywords": [
+    "react",
+    "typescript",
+    "loader",
+    "spinner",
+    "context"
   ],
   "scripts": {
     "clean": "rimraf lib/",
