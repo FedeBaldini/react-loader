@@ -1,12 +1,12 @@
 .dot-container {
   margin: 100px auto 0;
-  width: 70px;
+  width: 100%;
   text-align: center;
 }
 
 .dot-container > div {
-  width: 25%;
-  height: 25%;
+  width: 20px;
+  height: 20px;
   background-color: #1799e7;
 
   border-radius: 100%;
