@@ -20,7 +20,12 @@ export default {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    "!src/**/*.css",
+    "!src/**/*.d.ts",
+    "!src/**/*.stories.tsx",
+    "!src/index.tsx",
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -167,6 +172,8 @@ export default {
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.tsx?$": "ts-jest",
+    ".+\\.(css|styl|less|sass|scss)$":
+      "<rootDir>/node_modules/jest-css-modules-transform",
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
