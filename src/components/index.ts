@@ -1,1 +1,2 @@
-export * from "./Loader";
+export { Loader } from "./Loader";
+export { WithLoader } from "./WithLoader";
