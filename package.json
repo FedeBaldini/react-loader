@@ -77,5 +77,8 @@
   },
   "resolutions": {
     "jackspeak": "2.1.1"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2"
   }
 }

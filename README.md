@@ -66,6 +66,7 @@ export function TestLoading() {
 | Property           | Type          | Optional | Default      | Description                                         |
 | ------------------ | ------------- | -------- | ------------ | --------------------------------------------------- |
 | variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`). |
+| inline             | boolean       | true     | false        | Make the loader inline.                             |
 | containerClassName | string        | true     | undefined    | Add a custom class to the loader container.         |
 | containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.          |
 | loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                   |
@@ -96,6 +97,7 @@ By default the component uses the values from `LoaderContext` but you can overri
 | isLoading          | boolean       | true     | undefined    | Override the default logic and don't use the `LoaderContext` values. |
 | loader             | ReactNode     | true     | undefined    | Override the default Loader component and provide a custom one.      |
 | variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`).                  |
+| inline             | boolean       | true     | false        | Make the loader inline.                                              |
 | containerClassName | string        | true     | undefined    | Add a custom class to the loader container.                          |
 | containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.                           |
 | loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                                    |

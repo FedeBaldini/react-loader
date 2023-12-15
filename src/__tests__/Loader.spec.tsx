@@ -9,6 +9,13 @@ describe("Loader", () => {
     expect(screen.getByTestId("loader")).toBeInTheDocument();
   });
 
+  it("renders inline", () => {
+    const { container } = render(<Loader inline />);
+    expect(
+      container.querySelector(".loader-container-inline")
+    ).toBeInTheDocument();
+  });
+
   it.each(VARIANTS)(
     "provides additional classNames for %s loader",
     (variant) => {
@@ -38,7 +45,7 @@ describe("Loader", () => {
     );
     expect(screen.getByTestId("loader")).toHaveStyle({ color: "blue" });
     expect(screen.getByTestId("loader-container")).toHaveStyle({
-      color: "red",
+      color: "red"
     });
   });
 });
