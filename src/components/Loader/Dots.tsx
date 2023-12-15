@@ -1,5 +1,5 @@
+import "../../Dots.css";
 import { LoaderProps } from "./types";
-import "./styles/Dots.css";
 
 export function Dots({ className, style }: LoaderProps) {
   return (

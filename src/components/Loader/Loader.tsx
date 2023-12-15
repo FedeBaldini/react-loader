@@ -1,10 +1,9 @@
 import { CSSProperties, useMemo } from "react";
 
-import { Variant } from "./types";
+import "../../Loader.css";
 import { CircleDots } from "./CircleDots";
 import { Dots } from "./Dots";
-
-import "./styles/Loader.css";
+import { Variant } from "./types";
 
 export interface Props {
   variant?: Variant;
@@ -19,7 +18,7 @@ export function Loader({
   containerClassName,
   containerStyle,
   loaderClassName,
-  loaderStyle,
+  loaderStyle
 }: Props) {
   const loader = useMemo(() => {
     switch (variant) {

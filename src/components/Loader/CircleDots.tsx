@@ -1,5 +1,5 @@
+import "../../styles/CircleDots.css";
 import { LoaderProps } from "./types";
-import "./styles/CircleDots.css";
 
 export function CircleDots({ className, style }: LoaderProps) {
   return (
