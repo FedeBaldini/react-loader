@@ -1,4 +1,3 @@
-import "../../styles/Dots.css";
 import { LoaderProps } from "./types";
 
 export function Dots({ className, style }: LoaderProps) {
