@@ -1,6 +1,5 @@
 import { CSSProperties, useMemo } from "react";
 
-import "../../styles/Loader.css";
 import { CircleDots } from "./CircleDots";
 import { Dots } from "./Dots";
 import { Variant } from "./types";

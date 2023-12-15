@@ -29,6 +29,8 @@ _app.tsx_
 import { TestLoading } from "./TestLoading";
 import { LoaderProvider } from "react-loader-ts";
 
+import "react-loader-ts/lib/esm/styles/global.css";
+
 export default function Application() {
   return (
     <LoaderProvider>
@@ -37,6 +39,8 @@ export default function Application() {
   );
 }
 ```
+
+_Remember to import the styles from `react-loader-ts/lib/esm/styles/global.css`._
 
 _TestLoading.tsx_
 
@@ -87,15 +91,15 @@ This component automatically renders the loader when it's loading and it renders
 
 By default the component uses the values from `LoaderContext` but you can override that behavior using the `isLoading` prop.
 
-| Property           | Type          | Optional | Default      | Description                                                           |
-| ------------------ | ------------- | -------- | ------------ | --------------------------------------------------------------------- |
-| isLoading          | boolean       | true     | undefined    | Override the default logic and don't use the `LoaderContext` values.  |
-| loader             | ReactNode     | true     | undefined    | Override the default Loader component and provide a custom one.       |
-| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`).                   |
-| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.                           |
-| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.                            |
-| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                                     |
-| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                                      |
+| Property           | Type          | Optional | Default      | Description                                                          |
+| ------------------ | ------------- | -------- | ------------ | -------------------------------------------------------------------- |
+| isLoading          | boolean       | true     | undefined    | Override the default logic and don't use the `LoaderContext` values. |
+| loader             | ReactNode     | true     | undefined    | Override the default Loader component and provide a custom one.      |
+| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`).                  |
+| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.                          |
+| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.                           |
+| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                                    |
+| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                                     |
 
 **_Example:_**
 
