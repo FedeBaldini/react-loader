@@ -2,7 +2,7 @@
 
 https://www.npmjs.com/package/react-loader-ts
 
-![react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage the loader state for the entire application, and other useful components.
+[react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage the loader state for the entire application, and other useful components.
 
 ## Installation
 
