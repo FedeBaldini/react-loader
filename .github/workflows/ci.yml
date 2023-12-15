@@ -11,7 +11,7 @@ on:
       - "**"
 
 jobs:
-  library:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
