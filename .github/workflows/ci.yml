@@ -5,7 +5,7 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
     branches:
       - "**"
@@ -15,17 +15,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          # minimum version supported by our dependencies (Jest)
-          node-version: 14.15
-
-      - uses: actions/cache@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
+      - name: Install Dependencies 📦
+        run: yarn install
+      - name: Compile 🛠
+        run: yarn compile
+      - name: Build  🏗
+        run: yarn build
+      - name: Test ✅
+        run: yarn test

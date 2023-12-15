@@ -8,7 +8,7 @@ describe("WithLoader", () => {
   function renderComponent({
     isContextLoading,
     ...props
-  }: Props & { isContextLoading?: boolean }) {
+  }: Omit<Props, "children"> & { isContextLoading?: boolean }) {
     return render(
       <LoaderContextProvider
         value={{ isLoading: isContextLoading ?? false, setLoading: jest.fn() }}

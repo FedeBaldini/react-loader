@@ -1,4 +1,4 @@
-import { CSSProperties, FC, useMemo } from "react";
+import { CSSProperties, useMemo } from "react";
 
 import { Variant } from "./types";
 import { CircleDots } from "./CircleDots";
@@ -14,13 +14,13 @@ export interface Props {
   loaderStyle?: CSSProperties;
 }
 
-export const Loader: FC<Props> = ({
+export function Loader({
   variant = Variant.Dots,
   containerClassName,
   containerStyle,
   loaderClassName,
   loaderStyle,
-}) => {
+}: Props) {
   const loader = useMemo(() => {
     switch (variant) {
       case Variant.Dots:
@@ -41,4 +41,4 @@ export const Loader: FC<Props> = ({
       {loader}
     </div>
   );
-};
+}

@@ -1,7 +1,10 @@
 .dot-container {
-  margin: 100px auto 0;
+  margin: 0 auto;
   width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dot-container > div {

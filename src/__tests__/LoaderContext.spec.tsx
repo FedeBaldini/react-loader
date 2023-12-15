@@ -1,10 +1,9 @@
-import { FC } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import { LoaderProvider } from "../contexts";
 import { useLoader } from "../hooks";
 
-const MockApp: FC = () => {
+function MockApp() {
   const { isLoading, setLoading } = useLoader();
 
   return (
@@ -18,7 +17,7 @@ const MockApp: FC = () => {
       {isLoading && <span>Is Loading</span>}
     </>
   );
-};
+}
 
 describe("LoaderProvider", () => {
   it("toggles the loader", () => {
