@@ -2,7 +2,7 @@
 
 https://www.npmjs.com/package/react-loader-ts
 
-`react-loader-ts` provides a customizable Loader component, a LoaderContext to handle the loader state for the whole application and other usefull components.
+![react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage the loader state for the entire application, and other useful components.
 
 ## Installation
 
@@ -18,34 +18,32 @@ https://www.npmjs.com/package/react-loader-ts
 
 ## Uasage
 
-_To make the library works you need to wrap your app with the `LoaderProvider`._
+_To enable the library, wrap your application with the `LoaderProvider`._
 
-Here is a quick example on how to use the **react-loader-ts** library:
+Here's a quick example:
 
-_index.tsx_
+_app.tsx_
 
 ```
-import ReactDOM from "react-dom";
+...otherImports;
+import { TestLoading } from "./TestLoading";
 import { LoaderProvider } from "react-loader-ts";
 
-import App from "./App";
-
-ReactDOM.render(
-  <React.StrictMode>
+export default function Application() {
+  return (
     <LoaderProvider>
-      <App />
+      <TestLoading />
     </LoaderProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+  );
+}
 ```
 
-_App.tsx_
+_TestLoading.tsx_
 
 ```
 import { useLoader, Loader } from "react-loader-ts";
 
-function App() {
+export function TestLoading() {
   const { isLoading, setLoading } = useLoader();
 
   return (
@@ -55,21 +53,19 @@ function App() {
     </>
   );
 }
-
-export default App;
 ```
 
 ## Components
 
 ### Loader
 
-| Property           | Type          | Optional | Default      | Description                                                       |
-| ------------------ | ------------- | -------- | ------------ | ----------------------------------------------------------------- |
-| variant            | Variant       | true     | Variant.Dots | use this field to change the loader variant (`CirlceDots - Dots`) |
-| containerClassName | string        | true     | undefined    | use this field to add custom class to the loader container        |
-| containerStyle     | CSSProperties | true     | undefined    | use this field to add custom style on the loader container        |
-| loaderClassName    | string        | true     | undefined    | use this field to add custom class to the loader                  |
-| loaderStyle        | string        | true     | undefined    | use this field to add custom style to the loader                  |
+| Property           | Type          | Optional | Default      | Description                                         |
+| ------------------ | ------------- | -------- | ------------ | --------------------------------------------------- |
+| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`). |
+| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.         |
+| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.          |
+| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                   |
+| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                    |
 
 **_Example:_**
 
@@ -89,17 +85,17 @@ import { Loader, Variant } from "react-loader-ts";
 
 This component automatically renders the loader when it's loading and it renders the children when it isn't.
 
-By default the component uses the values from `LoaderContext` but if needed is possible to override that behaviour by using the `isLoading` prop.
+By default the component uses the values from `LoaderContext` but you can override that behavior using the `isLoading` prop.
 
-| Property           | Type          | Optional | Default      | Description                                                                         |
-| ------------------ | ------------- | -------- | ------------ | ----------------------------------------------------------------------------------- |
-| isLoading          | boolean       | true     | undefined    | use this field to override the default logic and don't use the LoaderContext values |
-| loader             | ReactNode     | true     | undefined    | use this field to override the default Loader component and provide a custom one    |
-| variant            | Variant       | true     | Variant.Dots | use this field to change the loader variant (`CirlceDots - Dots`)                   |
-| containerClassName | string        | true     | undefined    | use this field to add custom class to the loader container                          |
-| containerStyle     | CSSProperties | true     | undefined    | use this field to add custom style on the loader container                          |
-| loaderClassName    | string        | true     | undefined    | use this field to add custom class to the loader                                    |
-| loaderStyle        | string        | true     | undefined    | use this field to add custom style to the loader                                    |
+| Property           | Type          | Optional | Default      | Description                                                           |
+| ------------------ | ------------- | -------- | ------------ | --------------------------------------------------------------------- |
+| isLoading          | boolean       | true     | undefined    | Override the default logic and don't use the `LoaderContext` values.  |
+| loader             | ReactNode     | true     | undefined    | Override the default Loader component and provide a custom one.       |
+| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`).                   |
+| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.                           |
+| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.                            |
+| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                                     |
+| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                                      |
 
 **_Example:_**
 
