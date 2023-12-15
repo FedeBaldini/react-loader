@@ -6,6 +6,7 @@ import { Variant } from "./types";
 
 export interface Props {
   variant?: Variant;
+  inline?: boolean;
   containerClassName?: string;
   containerStyle?: CSSProperties;
   loaderClassName?: string;
@@ -14,6 +15,7 @@ export interface Props {
 
 export function Loader({
   variant = Variant.Dots,
+  inline = false,
   containerClassName,
   containerStyle,
   loaderClassName,
@@ -22,15 +24,32 @@ export function Loader({
   const loader = useMemo(() => {
     switch (variant) {
       case Variant.Dots:
-        return <Dots className={loaderClassName} style={loaderStyle} />;
+        return (
+          <Dots
+            className={`loader-container-inline ${loaderClassName}`}
+            style={loaderStyle}
+          />
+        );
       case Variant.CircleDots:
-        return <CircleDots className={loaderClassName} style={loaderStyle} />;
+        return (
+          <CircleDots
+            className={`loader-container-inline ${loaderClassName}`}
+            style={loaderStyle}
+          />
+        );
       default:
-        return <Dots className={loaderClassName} style={loaderStyle} />;
+        return (
+          <Dots
+            className={`loader-container-inline ${loaderClassName}`}
+            style={loaderStyle}
+          />
+        );
     }
   }, [variant]);
 
-  return (
+  return inline ? (
+    loader
+  ) : (
     <div
       className={`loader-container ${containerClassName ?? ""}`}
       style={containerStyle}
