@@ -1,4 +1,4 @@
-import {  ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { useLoader } from "../hooks";
 import { WithChildren } from "../types";
@@ -9,12 +9,7 @@ export interface Props extends LoaderProps, WithChildren {
   loader?: ReactNode;
 }
 
-export function WithLoader({
-  isLoading,
-  children,
-  loader,
-  ...props
-}: Props) {
+export function WithLoader({ isLoading, children, loader, ...props }: Props) {
   const { isLoading: isContextLoading } = useLoader();
   const loaderElement = loader ?? <Loader {...props} />;
 
@@ -23,4 +18,4 @@ export function WithLoader({
   } else {
     return isContextLoading ? <>{loaderElement}</> : <>{children}</>;
   }
-};
+}
