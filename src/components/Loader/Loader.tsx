@@ -1,7 +1,5 @@
 import { CSSProperties, useMemo } from "react";
 
-import classNames from "classnames";
-
 import { CircleDots } from "./CircleDots";
 import { Dots } from "./Dots";
 import { Variant } from "./types";
@@ -28,21 +26,21 @@ export function Loader({
       case Variant.Dots:
         return (
           <Dots
-            className={classNames("loader-container-inline", loaderClassName)}
+            className={`loader-container-inline ${loaderClassName}`}
             style={loaderStyle}
           />
         );
       case Variant.CircleDots:
         return (
           <CircleDots
-            className={classNames("loader-container-inline", loaderClassName)}
+            className={`loader-container-inline ${loaderClassName}`}
             style={loaderStyle}
           />
         );
       default:
         return (
           <Dots
-            className={classNames("loader-container-inline", loaderClassName)}
+            className={`loader-container-inline ${loaderClassName}`}
             style={loaderStyle}
           />
         );
