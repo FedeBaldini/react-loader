@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Loader } from "../components";
+import { Props  } from "../components/Loader";
 import { Variant } from "../components/Loader/types";
 
 export default {
@@ -24,7 +25,7 @@ export default {
   },
 } as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
+const Template: ComponentStory<typeof Loader> = (args: Props) => <Loader {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

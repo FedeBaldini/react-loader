@@ -1,11 +1,12 @@
 import {
   createContext,
   Dispatch,
-  FC,
   SetStateAction,
   useMemo,
   useState,
 } from "react";
+
+import { WithChildren } from "../types";
 
 export interface ILoaderContext {
   setLoading: Dispatch<SetStateAction<boolean>>;
@@ -20,7 +21,9 @@ const DEFAULT_CONTEXT_VALUE: ILoaderContext = {
 export const LoaderContext = createContext(DEFAULT_CONTEXT_VALUE);
 export const LoaderContextProvider = LoaderContext.Provider;
 
-export const LoaderProvider: FC = ({ children }) => {
+
+
+export function LoaderProvider({ children }: WithChildren) {
   const [isLoading, setLoading] = useState(false);
 
   const value = useMemo(

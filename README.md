@@ -25,7 +25,6 @@ Here is a quick example on how to use the **react-loader-ts** library:
 _index.tsx_
 
 ```
-import React from "react";
 import ReactDOM from "react-dom";
 import { LoaderProvider } from "react-loader-ts";
 

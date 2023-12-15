@@ -1,19 +1,20 @@
-import { FC, ReactNode } from "react";
+import {  ReactNode } from "react";
 
 import { useLoader } from "../hooks";
+import { WithChildren } from "../types";
 import { Loader, Props as LoaderProps } from "./Loader";
 
-export interface Props extends LoaderProps {
+export interface Props extends LoaderProps, WithChildren {
   isLoading?: boolean;
   loader?: ReactNode;
 }
 
-export const WithLoader: FC<Props> = ({
+export function WithLoader({
   isLoading,
   children,
   loader,
   ...props
-}) => {
+}: Props) {
   const { isLoading: isContextLoading } = useLoader();
   const loaderElement = loader ?? <Loader {...props} />;
 

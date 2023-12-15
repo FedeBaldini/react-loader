@@ -1,13 +1,13 @@
-import { FC, ReactNode } from "react";
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 
 import { LoaderProvider } from "../contexts";
 import { useLoader } from "../hooks/useLoader";
+import { WithChildren } from "../types";
 
 describe("hooks / useLoader", () => {
-  const Wrapper: FC<{ children?: ReactNode }> = ({ children }) => {
+  function Wrapper({ children }: WithChildren) {
     return <LoaderProvider>{children}</LoaderProvider>;
-  };
+  }
 
   it("toggles loader", () => {
     const { result } = renderHook(() => useLoader(), {
