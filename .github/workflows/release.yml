@@ -1,15 +1,26 @@
+# This workflow will do a clean install of node dependencies,
+# build the source code, run tests and publish the library to NPM
+
 name: Publish to NPM
+
 on:
   release:
     types: [created]
+
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           registry-url: "https://registry.npmjs.org"
+      - uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install Dependencies 📦
         run: yarn install
       - name: Compile 🛠
