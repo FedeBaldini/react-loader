@@ -53,7 +53,7 @@ export function TestLoading() {
   return (
     <>
       <button onClick={() => setLoading(!isLoading)}>Toggle loading</button>
-      {isLoading && <Loader />}
+      {isLoading ? <Loader /> : null}
     </>
   );
 }

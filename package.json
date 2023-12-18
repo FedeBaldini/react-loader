@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -34,7 +34,7 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lib:publish": "yarn build && npm publish"
+    "start:example": "cd ./example && yarn dev"
   },
   "peerDependencies": {
     "react": "^18.0.2",
