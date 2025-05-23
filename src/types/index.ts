@@ -1,1 +1,1 @@
-export * from "./WithChildren.interface"
+export * from "./WithChildren.interface";

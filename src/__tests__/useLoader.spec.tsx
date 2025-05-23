@@ -11,7 +11,7 @@ describe("hooks / useLoader", () => {
 
   it("toggles loader", () => {
     const { result } = renderHook(() => useLoader(), {
-      wrapper: Wrapper,
+      wrapper: Wrapper
     });
 
     expect(result.current.isLoading).toBe(false);

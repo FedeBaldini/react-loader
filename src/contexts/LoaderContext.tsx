@@ -3,7 +3,7 @@ import {
   Dispatch,
   SetStateAction,
   useMemo,
-  useState,
+  useState
 } from "react";
 
 import { WithChildren } from "../types";
@@ -15,13 +15,11 @@ export interface ILoaderContext {
 
 const DEFAULT_CONTEXT_VALUE: ILoaderContext = {
   setLoading: null as unknown as Dispatch<SetStateAction<boolean>>,
-  isLoading: false,
+  isLoading: false
 };
 
 export const LoaderContext = createContext(DEFAULT_CONTEXT_VALUE);
 export const LoaderContextProvider = LoaderContext.Provider;
-
-
 
 export function LoaderProvider({ children }: WithChildren) {
   const [isLoading, setLoading] = useState(false);
@@ -30,7 +28,7 @@ export function LoaderProvider({ children }: WithChildren) {
     () => ({
       ...DEFAULT_CONTEXT_VALUE,
       isLoading,
-      setLoading,
+      setLoading
     }),
     [isLoading]
   );
@@ -38,4 +36,4 @@ export function LoaderProvider({ children }: WithChildren) {
   return (
     <LoaderContextProvider value={value}>{children}</LoaderContextProvider>
   );
-};
+}
