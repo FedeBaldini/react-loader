@@ -1,10 +1,11 @@
-import { LoaderProps } from "./types";
+import classNames from "classnames";
 
-export function CircleDots({ className, style }: LoaderProps) {
+import { WithClassname } from "../../types";
+
+export function CircleDots({ className }: WithClassname) {
   return (
     <div
-      className={`circle-dot-container ${className ?? ""}`}
-      style={style}
+      className={classNames("circle-dot-container", className)}
       data-testid="loader"
     >
       <div className="circle-dot" />

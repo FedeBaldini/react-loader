@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Loader } from "../components";
-import { Variant, VARIANTS } from "../components/Loader/types";
+import { VARIANTS } from "../types";
 
 const meta = {
   title: "Loader",
@@ -13,18 +13,8 @@ const meta = {
     }
   },
   args: {
-    variant: Variant.Dots,
-    inline: false,
-    loaderStyle: {
-      width: "60px",
-      height: "60px"
-    },
-    containerStyle: {
-      width: "100%",
-      height: "100%",
-      backgroundColor: "white",
-      opacity: 1
-    }
+    variant: "dots",
+    inline: false
   }
 } satisfies Meta<typeof Loader>;
 

@@ -1,10 +1,11 @@
-import { LoaderProps } from "./types";
+import classNames from "classnames";
 
-export function Dots({ className, style }: LoaderProps) {
+import { WithClassname } from "../../types";
+
+export function Dots({ className }: WithClassname) {
   return (
     <div
-      className={`dot-container ${className ?? ""}`}
-      style={style}
+      className={classNames("dot-container", className)}
       data-testid="loader"
     >
       <div className="first-dot"></div>
