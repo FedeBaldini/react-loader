@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,6 +8,7 @@
   "author": "Federico Baldini",
   "license": "MIT",
   "private": false,
+  "type": "module",
   "files": [
     "/dist",
     "!/dist/**/__tests__",
@@ -22,10 +23,24 @@
     "spinner",
     "context"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./components/Loader": {
+      "import": "./dist/components/Loader/index.js",
+      "types": "./dist/components/Loader/index.d.ts"
+    },
+    "./components/WithLoader": {
+      "import": "./dist/components/WithLoader.js",
+      "types": "./dist/components/WithLoader.d.ts"
+    }
+  },
   "scripts": {
     "format": "prettier --write .",
     "clean": "rimraf node_modules yarn.lock",
-    "clean:build": "rimraf dist/",
+    "clean:build": "rimraf dist/ tsconfig.build.tsbuildinfo tsconfig.tsbuildinfo",
     "build": "yarn clean:build && tsc --build ./tsconfig.build.json",
     "compile": "tsc",
     "test": "jest",
