@@ -7,13 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "install:loader": "yarn add \"../react-loader-ts-$(node -p \"require('../package.json').version\").tgz\""
+    "add:loader": "yarn add \"../react-loader-ts-$(node -p \"require('../package.json').version\").tgz\" --force"
   },
   "dependencies": {
     "next": "15.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-loader-ts": "../react-loader-ts-2.0.2.tgz"
+    "react-loader-ts": "../react-loader-ts-2.0.3.tgz"
   },
   "devDependencies": {
     "@types/node": "^20",

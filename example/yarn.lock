@@ -307,9 +307,9 @@ react-dom@^19.0.0:
   dependencies:
     scheduler "^0.26.0"
 
-react-loader-ts@../react-loader-ts-2.0.2.tgz:
-  version "2.0.2"
-  resolved "../react-loader-ts-2.0.2.tgz#2c0d10996314e254d2d2ff0c73e79da63270fd9a"
+react-loader-ts@../react-loader-ts-2.0.3.tgz:
+  version "2.0.3"
+  resolved "../react-loader-ts-2.0.3.tgz#06b3c2ad74982fdd27ad3f5a44e26ea9939311a8"
 
 react@^19.0.0:
   version "19.1.0"

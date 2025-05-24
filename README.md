@@ -20,7 +20,7 @@ yarn add react-loader-ts
 npm install react-loader-ts
 ```
 
-## Features (v2.0.2)
+## Features (v2.0.3)
 
 - ✅ React 19 compatible
 - 🎨 Native CSS custom properties for loader customization

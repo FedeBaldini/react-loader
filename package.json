@@ -1,6 +1,6 @@
 {
   "name": "react-loader-ts",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -42,7 +42,7 @@
     "format": "prettier --write .",
     "cleanup": "rimraf node_modules yarn.lock",
     "cleanup:build": "rimraf dist/ tsconfig.build.tsbuildinfo",
-    "build:css": "postcss src/styles/global.css -o dist/styles/global.css",
+    "build:css": "postcss src/styles/global.css -o dist/styles/global.css --config config/postcss.config.js",
     "build:ts": "tsc --build ./tsconfig.build.json",
     "build": "yarn cleanup:build && yarn build:ts && yarn build:css",
     "compile": "tsc",
