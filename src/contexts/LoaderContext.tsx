@@ -1,36 +1,51 @@
 import {
   createContext,
   Dispatch,
+  PropsWithChildren,
   SetStateAction,
   useMemo,
-  useState,
+  useState
 } from "react";
 
-import { WithChildren } from "../types";
-
+/**
+ * Interface for the Loader context.
+ *
+ * @property {boolean} isLoading - Current loading state.
+ * @property {Dispatch<SetStateAction<boolean>>} setLoading - Function to update the loading state.
+ */
 export interface ILoaderContext {
   setLoading: Dispatch<SetStateAction<boolean>>;
   isLoading: boolean;
 }
 
 const DEFAULT_CONTEXT_VALUE: ILoaderContext = {
-  setLoading: null as unknown as Dispatch<SetStateAction<boolean>>,
-  isLoading: false,
+  setLoading: () => {},
+  isLoading: false
 };
 
+/**
+ * React context used to share loader state across the application.
+ */
 export const LoaderContext = createContext(DEFAULT_CONTEXT_VALUE);
+
+/**
+ * Exported context provider component to be used in component trees.
+ */
 export const LoaderContextProvider = LoaderContext.Provider;
 
-
-
-export function LoaderProvider({ children }: WithChildren) {
+/**
+ * Context provider for managing loading state across the application.
+ *
+ * @param {PropsWithChildren} props - React props containing children elements.
+ */
+export function LoaderProvider({ children }: PropsWithChildren) {
   const [isLoading, setLoading] = useState(false);
 
   const value = useMemo(
     () => ({
       ...DEFAULT_CONTEXT_VALUE,
       isLoading,
-      setLoading,
+      setLoading
     }),
     [isLoading]
   );
@@ -38,4 +53,4 @@ export function LoaderProvider({ children }: WithChildren) {
   return (
     <LoaderContextProvider value={value}>{children}</LoaderContextProvider>
   );
-};
+}

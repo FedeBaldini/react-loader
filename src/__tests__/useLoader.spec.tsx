@@ -1,17 +1,18 @@
+import { PropsWithChildren } from "react";
+
 import { act, renderHook } from "@testing-library/react";
 
 import { LoaderProvider } from "../contexts";
 import { useLoader } from "../hooks/useLoader";
-import { WithChildren } from "../types";
 
 describe("hooks / useLoader", () => {
-  function Wrapper({ children }: WithChildren) {
+  function Wrapper({ children }: PropsWithChildren) {
     return <LoaderProvider>{children}</LoaderProvider>;
   }
 
   it("toggles loader", () => {
     const { result } = renderHook(() => useLoader(), {
-      wrapper: Wrapper,
+      wrapper: Wrapper
     });
 
     expect(result.current.isLoading).toBe(false);

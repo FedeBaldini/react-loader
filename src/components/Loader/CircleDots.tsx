@@ -1,18 +1,14 @@
-import { LoaderProps } from "./types";
+import { CSSProperties, HTMLAttributes } from "react";
 
-export function CircleDots({ className, style }: LoaderProps) {
+export function CircleDots(props: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={`circle-dot-container ${className ?? ""}`}
-      style={style}
-      data-testid="loader"
-    >
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
+    <div {...props} data-testid="loader">
+      {[...Array(6)].map((_, index) => (
+        <div
+          key={index}
+          style={{ "--loader-dot-index": index + 1 } as CSSProperties}
+        />
+      ))}
     </div>
   );
 }

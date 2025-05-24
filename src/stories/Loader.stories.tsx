@@ -1,46 +1,53 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { Loader } from "../components";
-import { Props } from "../components/Loader";
-import { Variant } from "../components/Loader/types";
+import { VARIANTS } from "../types";
 
-export default {
+const meta = {
   title: "Loader",
   component: Loader,
   argTypes: {
     variant: {
-      options: Variant,
+      options: VARIANTS,
       control: { type: "radio" }
     },
-    loaderStyle: {
-      width: "60px",
-      height: "60px"
+    containerClassName: {
+      table: {
+        disable: true
+      }
     },
-    containerStyle: {
-      width: "100%",
-      height: "100%",
-      backgroundColor: "white",
-      opacity: 1
+    loaderClassName: {
+      table: {
+        disable: true
+      }
     }
-  }
-} as ComponentMeta<typeof Loader>;
-
-const Template: ComponentStory<typeof Loader> = (args: Props) => (
-  <Loader {...args} />
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  variant: Variant.Dots,
-  inline: false,
-  loaderStyle: {
-    width: "60px",
-    height: "60px"
   },
-  containerStyle: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "white",
-    opacity: 1
+  args: {
+    variant: "dots",
+    inline: false
   }
+} satisfies Meta<typeof Loader>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
+
+export const DarkMode: Story = {
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          colorScheme: "dark",
+          backgroundColor: "#000",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };

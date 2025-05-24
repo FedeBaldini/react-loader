@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 
 import { Loader } from "../components";
-import { VARIANTS } from "../components/Loader/types";
+import { VARIANTS } from "../types";
 
 describe("Loader", () => {
   it("renders a loader by default", () => {
@@ -11,9 +11,7 @@ describe("Loader", () => {
 
   it("renders inline", () => {
     const { container } = render(<Loader inline />);
-    expect(
-      container.querySelector(".loader-container-inline")
-    ).toBeInTheDocument();
+    expect(container.querySelector("[data-inline]")).toBeInTheDocument();
   });
 
   it.each(VARIANTS)(
@@ -34,18 +32,4 @@ describe("Loader", () => {
       );
     }
   );
-
-  it.each(VARIANTS)("provides additional styles for %s loader", (variant) => {
-    render(
-      <Loader
-        variant={variant}
-        containerStyle={{ color: "red" }}
-        loaderStyle={{ color: "blue" }}
-      />
-    );
-    expect(screen.getByTestId("loader")).toHaveStyle({ color: "blue" });
-    expect(screen.getByTestId("loader-container")).toHaveStyle({
-      color: "red"
-    });
-  });
 });

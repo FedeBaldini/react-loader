@@ -12,25 +12,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
           registry-url: "https://registry.npmjs.org"
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install Dependencies 📦
+      - name: 🧹 Clean modules
+        run: rm -rf node_modules yarn.lock
+
+      - name: 🪢 Install Dependencies
         run: yarn install
-      - name: Compile 🛠
+
+      - name: 📝 Compile
         run: yarn compile
-      - name: Build  🏗
+
+      - name: 🏗 Build
         run: yarn build
-      - name: Test ✅
+
+      - name: 🧪 Test
         run: yarn test
-      - name: Publish 📦
+
+      - name: 📦 Publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 
 import { WithLoader } from "../components";
-import { LoaderContextProvider } from "../contexts";
 import { Props } from "../components/WithLoader";
+import { LoaderContextProvider } from "../contexts";
 
 describe("WithLoader", () => {
   function renderComponent({
@@ -35,7 +35,7 @@ describe("WithLoader", () => {
   it("provides additional class name", () => {
     renderComponent({
       containerClassName: "additional-class",
-      isContextLoading: true,
+      isContextLoading: true
     });
 
     expect(screen.getByTestId("loader-container")).toHaveClass(
@@ -47,7 +47,7 @@ describe("WithLoader", () => {
     renderComponent({
       containerClassName: "additional-class",
       isLoading: true,
-      isContextLoading: false,
+      isContextLoading: false
     });
 
     expect(screen.getByTestId("loader-container")).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe("WithLoader", () => {
   it("provides a custom loader component", () => {
     renderComponent({
       loader: <>custom loader</>,
-      isLoading: true,
+      isLoading: true
     });
 
     expect(screen.getByText(/custom loader/i)).toBeInTheDocument();
