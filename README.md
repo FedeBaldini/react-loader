@@ -1,119 +1,149 @@
 # React Loader TS
 
-https://www.npmjs.com/package/react-loader-ts
+[![npm](https://img.shields.io/npm/v/react-loader-ts)](https://www.npmjs.com/package/react-loader-ts)
 
-[react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage the loader state for the entire application, and other useful components.
+[react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage global loader state, and other helpful utilities.
+
+Now fully updated for **React 19**, with modernized theming via CSS variables and native dark mode support!
 
 ## Installation
 
 ### Using yarn
 
-`yarn add react-loader-ts`
+```bash
+yarn add react-loader-ts
+```
 
 ### Using npm
 
-`npm install --save react-loader-ts`
-
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/55654811/131927627-3678fcd6-34d4-4bc3-9504-325235a0a531.gif)
-
-## Uasage
-
-_To enable the library, wrap your application with the `LoaderProvider`._
-
-Here's a quick example:
-
-_app.tsx_
-
+```bash
+npm install react-loader-ts
 ```
-...otherImports;
-import { TestLoading } from "./TestLoading";
-import { LoaderProvider } from "react-loader-ts";
 
+## Features (v2.0.0)
+
+- ✅ React 19 compatible
+- 🎨 Native CSS custom properties for loader customization
+- 🌙 Native dark mode support with `light-dark()`
+- 🧼 Cleaned-up API: removed inline styles in favor of CSS class customization
+- 🧩 Strict type safety using `Variant` union type
+- 🪶 Lightweight and dependency-free
+
+## Usage
+
+_To enable the loader context, wrap your app with `LoaderProvider`:_
+
+```tsx
+// app.tsx
+import { LoaderProvider } from "react-loader-ts";
 import "react-loader-ts/lib/esm/styles/global.css";
 
 export default function Application() {
   return (
     <LoaderProvider>
-      <TestLoading />
+      <YourApp />
     </LoaderProvider>
   );
 }
 ```
 
-_Remember to import the styles from `react-loader-ts/lib/esm/styles/global.css`._
+```tsx
+// ExampleComponent.tsx
+import { Loader, useLoader } from "react-loader-ts";
 
-_TestLoading.tsx_
-
-```
-import { useLoader, Loader } from "react-loader-ts";
-
-export function TestLoading() {
+export function ExampleComponent() {
   const { isLoading, setLoading } = useLoader();
 
   return (
     <>
       <button onClick={() => setLoading(!isLoading)}>Toggle loading</button>
-      {isLoading ? <Loader /> : null}
+      {isLoading && <Loader />}
     </>
   );
 }
 ```
 
+## Customization via CSS Variables
+
+You can override these variables globally or within a scope:
+
+```css
+:root {
+  --loader-color: light-dark(#1799e7, #9fd8ff);
+  --loader-size: 1.25rem;
+  --loader-spacing: 0.5rem;
+  --loader-background: light-dark(
+    rgba(255, 255, 255, 0.5),
+    rgba(10, 10, 10, 0.5)
+  );
+  --loader-circle-size: 3.75rem;
+}
+```
+
+Make sure to enable dual color scheme support:
+
+```css
+:root {
+  color-scheme: light dark;
+}
+```
+
 ## Components
 
-### Loader
+### `Loader`
 
-| Property           | Type          | Optional | Default      | Description                                         |
-| ------------------ | ------------- | -------- | ------------ | --------------------------------------------------- |
-| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`). |
-| inline             | boolean       | true     | false        | Make the loader inline.                             |
-| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.         |
-| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.          |
-| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                   |
-| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                    |
+A flexible loading indicator with two variants.
 
-**_Example:_**
+| Property             | Type    | Optional | Default | Description                        |
+| -------------------- | ------- | -------- | ------- | ---------------------------------- |
+| `variant`            | string  | ✅       | `dots`  | `"dots"` or `"circle-dots"`        |
+| `inline`             | boolean | ✅       | `false` | Renders the loader inline          |
+| `containerClassName` | string  | ✅       | —       | Custom class for loader container  |
+| `loaderClassName`    | string  | ✅       | —       | Custom class for the loader itself |
 
-```
-import { Loader, Variant } from "react-loader-ts";
+❌ `containerStyle` and `loaderStyle` have been removed in favor of CSS class usage and variables.
 
+**Example:**
+
+```tsx
 <Loader
-  variant={Variant.Dots}
-  containerClassName="custom-container-class"
-  containerStyle={{ backgroundColor: "red" }}
-  loaderClassName="custom-loader-class"
-  loaderStyle={{ width: "50px" }}
- />
+  variant="circle-dots"
+  containerClassName="my-container"
+  loaderClassName="my-loader"
+/>
 ```
 
-### WithLoader
+### `WithLoader`
 
-This component automatically renders the loader when it's loading and it renders the children when it isn't.
+Conditionally renders a loader or children based on loading state.
 
-By default the component uses the values from `LoaderContext` but you can override that behavior using the `isLoading` prop.
+| Property             | Type      | Optional | Description                                         |
+| -------------------- | --------- | -------- | --------------------------------------------------- |
+| `isLoading`          | boolean   | ✅       | Override context and manually control loading state |
+| `loader`             | ReactNode | ✅       | Provide a custom loader element                     |
+| `variant`            | string    | ✅       | `"dots"` or `"circle-dots"`                         |
+| `inline`             | boolean   | ✅       | Render inline                                       |
+| `containerClassName` | string    | ✅       | Custom class for container                          |
+| `loaderClassName`    | string    | ✅       | Custom class for loader                             |
 
-| Property           | Type          | Optional | Default      | Description                                                          |
-| ------------------ | ------------- | -------- | ------------ | -------------------------------------------------------------------- |
-| isLoading          | boolean       | true     | undefined    | Override the default logic and don't use the `LoaderContext` values. |
-| loader             | ReactNode     | true     | undefined    | Override the default Loader component and provide a custom one.      |
-| variant            | Variant       | true     | Variant.Dots | Change the loader variant (`CircleDots` or `Dots`).                  |
-| inline             | boolean       | true     | false        | Make the loader inline.                                              |
-| containerClassName | string        | true     | undefined    | Add a custom class to the loader container.                          |
-| containerStyle     | CSSProperties | true     | undefined    | Add custom styles to the loader container.                           |
-| loaderClassName    | string        | true     | undefined    | Add a custom class to the loader.                                    |
-| loaderStyle        | string        | true     | undefined    | Add custom styles to the loader.                                     |
+**Example:**
 
-**_Example:_**
+```tsx
+<WithLoader>Loading content here...</WithLoader>
 
+<WithLoader isLoading={true}>Loading override</WithLoader>
+
+<WithLoader loader={<div>Custom Spinner</div>}>Custom loading</WithLoader>
 ```
-import { WithLoader } from "react-loader-ts";
 
-// It uses the default isLoading value from LoaderContext
-<WithLoader>children</WithLoader>
+## Variants
 
-// It uses the provided isLoading value
-<WithLoader isLoading>children</WithLoader>
+```ts
+export const VARIANTS = ["circle-dots", "dots"] as const;
 
-// It uses the provided loader component
-<WithLoader loader={<>custom loader component</>}>children</WithLoader>
+export type Variant = (typeof VARIANTS)[number];
 ```
+
+## License
+
+MIT
