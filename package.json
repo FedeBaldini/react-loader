@@ -29,6 +29,7 @@
     "compile": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
+    "pr": "yarn compile && yarn build && yarn test",
     "prepare": "husky install",
     "start:example": "cd ./example && yarn dev",
     "storybook": "storybook dev -p 6006",
