@@ -8,7 +8,6 @@
   "author": "Federico Baldini",
   "license": "MIT",
   "private": false,
-  "type": "module",
   "files": [
     "/dist",
     "!/dist/**/__tests__",
@@ -50,7 +49,8 @@
     "prepare": "husky install",
     "start:example": "cd ./example && yarn dev",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "publish:local": "npm pack"
   },
   "peerDependencies": {
     "react": "19.1.0",

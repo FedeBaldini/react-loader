@@ -307,10 +307,9 @@ react-dom@^19.0.0:
   dependencies:
     scheduler "^0.26.0"
 
-react-loader-ts@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/react-loader-ts/-/react-loader-ts-2.0.1.tgz#437334493bab70d24b72561bf2d765ae4f1b830c"
-  integrity sha512-mDW+bIwpsCCudi4N2j01S/wKdI3/GJlLbSsxhmtrtsP7jdytjVjO9tm6DJ+eEo+4FnGKopA7x+RQLDyvELVacQ==
+react-loader-ts@../react-loader-ts-2.0.2.tgz:
+  version "2.0.2"
+  resolved "../react-loader-ts-2.0.2.tgz#2c0d10996314e254d2d2ff0c73e79da63270fd9a"
 
 react@^19.0.0:
   version "19.1.0"
