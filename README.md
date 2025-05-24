@@ -70,8 +70,6 @@ Be sure to import the generated global CSS from:
 import "react-loader-ts/styles/global.css";
 ```
 
-This file is built via PostCSS (autoprefixer + cssnano) and published under `dist/styles/global.css`.
-
 ## Customization via CSS Variables
 
 You can override these variables globally or within a scope:
