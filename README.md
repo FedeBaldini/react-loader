@@ -34,7 +34,6 @@ npm install react-loader-ts
 _To enable the loader context, wrap your app with `LoaderProvider`:_
 
 ```tsx
-// app.tsx
 import { LoaderProvider } from "react-loader-ts";
 import "react-loader-ts/lib/esm/styles/global.css";
 
@@ -48,7 +47,6 @@ export default function Application() {
 ```
 
 ```tsx
-// ExampleComponent.tsx
 import { Loader, useLoader } from "react-loader-ts";
 
 export function ExampleComponent() {
@@ -69,14 +67,26 @@ You can override these variables globally or within a scope:
 
 ```css
 :root {
-  --loader-color: light-dark(#1799e7, #9fd8ff);
-  --loader-size: 1.25rem;
-  --loader-spacing: 0.5rem;
-  --loader-background: light-dark(
-    rgba(255, 255, 255, 0.5),
-    rgba(10, 10, 10, 0.5)
+  --loader-light--color: #1799e7;
+  --loader-dark--color: #66ccff;
+  --loader-light--background-color: rgba(255, 255, 255, 0.5);
+  --loader-dark--background-color: rgba(0, 0, 0, 0.5);
+
+  --loader--color: light-dark(
+    var(--loader-light--color),
+    var(--loader-dark--color)
   );
-  --loader-circle-size: 3.75rem;
+  --loader--background-color: light-dark(
+    var(--loader-light--background-color),
+    var(--loader-dark--background-color)
+  );
+
+  --loader--spacing: 0.5rem;
+
+  --loader--width: 1.25rem;
+  --loader--height: 1.25rem;
+  --loader--circle-width: 3.75rem;
+  --loader--circle-height: 3.75rem;
 }
 ```
 
@@ -100,8 +110,6 @@ A flexible loading indicator with two variants.
 | `inline`             | boolean | ✅       | `false` | Renders the loader inline          |
 | `containerClassName` | string  | ✅       | —       | Custom class for loader container  |
 | `loaderClassName`    | string  | ✅       | —       | Custom class for the loader itself |
-
-❌ `containerStyle` and `loaderStyle` have been removed in favor of CSS class usage and variables.
 
 **Example:**
 
