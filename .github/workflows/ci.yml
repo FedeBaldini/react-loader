@@ -22,6 +22,9 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: 🧹 Clean modules
+        run: rm -rf node_modules yarn.lock
+
       - name: 🪢 Install Dependencies
         run: yarn install
 
