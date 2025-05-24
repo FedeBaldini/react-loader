@@ -24,8 +24,9 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "clean": "rimraf dist/",
-    "build": "tsc --build ./tsconfig.build.json",
+    "clean": "rimraf node_modules yarn.lock",
+    "clean:build": "rimraf dist/",
+    "build": "yarn clean:build && tsc --build ./tsconfig.build.json",
     "compile": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -34,9 +35,6 @@
     "start:example": "cd ./example && yarn dev",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "classnames": "2.5.1"
   },
   "peerDependencies": {
     "react": "18.0.2",

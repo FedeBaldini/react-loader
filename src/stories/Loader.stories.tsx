@@ -32,3 +32,22 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const DarkMode: Story = {
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          colorScheme: "dark",
+          backgroundColor: "#000",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
+};

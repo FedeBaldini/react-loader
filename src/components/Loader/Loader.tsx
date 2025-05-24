@@ -1,7 +1,3 @@
-import { useMemo } from "react";
-
-import classNames from "classnames";
-
 import { Variant } from "../../types";
 import { CircleDots } from "./CircleDots";
 import { Dots } from "./Dots";
@@ -39,34 +35,28 @@ export function Loader({
   containerClassName,
   loaderClassName
 }: Props) {
-  const loader = useMemo(() => {
-    switch (variant) {
-      case "dots":
-        return (
-          <Dots
-            className={classNames("loader-container-inline", loaderClassName)}
-          />
-        );
-      case "circle-dots":
-        return (
-          <CircleDots
-            className={classNames("loader-container-inline", loaderClassName)}
-          />
-        );
-      default:
-        return (
-          <Dots
-            className={classNames("loader-container-inline", loaderClassName)}
-          />
-        );
-    }
-  }, [variant]);
+  const loaderProps = {
+    "data-loader": variant,
+    "aria-live": "polite" as const,
+    role: "status",
+    "aria-busy": true,
+    ...(inline ? { "data-inline": true } : {}),
+    className: loaderClassName
+  };
+
+  const loader =
+    variant === "circle-dots" ? (
+      <CircleDots {...loaderProps} />
+    ) : (
+      <Dots {...loaderProps} />
+    );
 
   return inline ? (
     loader
   ) : (
     <div
-      className={classNames("loader-container", containerClassName)}
+      data-loader-container
+      className={containerClassName}
       data-testid="loader-container"
     >
       {loader}

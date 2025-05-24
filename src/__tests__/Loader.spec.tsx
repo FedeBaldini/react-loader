@@ -11,9 +11,7 @@ describe("Loader", () => {
 
   it("renders inline", () => {
     const { container } = render(<Loader inline />);
-    expect(
-      container.querySelector(".loader-container-inline")
-    ).toBeInTheDocument();
+    expect(container.querySelector("[data-inline]")).toBeInTheDocument();
   });
 
   it.each(VARIANTS)(

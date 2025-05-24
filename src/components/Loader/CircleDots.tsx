@@ -1,19 +1,14 @@
-import classNames from "classnames";
+import { CSSProperties, HTMLAttributes } from "react";
 
-import { WithClassname } from "../../types";
-
-export function CircleDots({ className }: WithClassname) {
+export function CircleDots(props: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={classNames("circle-dot-container", className)}
-      data-testid="loader"
-    >
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
-      <div className="circle-dot" />
+    <div {...props} data-testid="loader">
+      {[...Array(6)].map((_, index) => (
+        <div
+          key={index}
+          style={{ "--loader-dot-index": index + 1 } as CSSProperties}
+        />
+      ))}
     </div>
   );
 }
