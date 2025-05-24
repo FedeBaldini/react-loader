@@ -10,6 +10,16 @@ const meta = {
     variant: {
       options: VARIANTS,
       control: { type: "radio" }
+    },
+    containerClassName: {
+      table: {
+        disable: true
+      }
+    },
+    loaderClassName: {
+      table: {
+        disable: true
+      }
     }
   },
   args: {
