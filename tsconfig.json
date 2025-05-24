@@ -23,7 +23,7 @@
     "outDir": "./dist"
   },
   "include": ["src", "types"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "example"],
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs"
