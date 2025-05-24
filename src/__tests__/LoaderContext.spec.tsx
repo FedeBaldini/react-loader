@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import user from "@testing-library/user-event";
 
 import { LoaderProvider } from "../contexts";
 import { useLoader } from "../hooks";
@@ -20,7 +21,7 @@ function MockApp() {
 }
 
 describe("LoaderProvider", () => {
-  it("toggles the loader", () => {
+  it("toggles the loader", async () => {
     render(
       <LoaderProvider>
         <MockApp />
@@ -28,9 +29,9 @@ describe("LoaderProvider", () => {
     );
 
     expect(screen.queryByText(/is loading/i)).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /set loading/i }));
+    await user.click(screen.getByRole("button", { name: /set loading/i }));
     expect(screen.getByText(/is loading/i)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /stop loading/i }));
+    await user.click(screen.getByRole("button", { name: /stop loading/i }));
     expect(screen.queryByText(/is loading/i)).not.toBeInTheDocument();
   });
 });
