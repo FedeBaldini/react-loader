@@ -4,7 +4,7 @@
 
 [react-loader-ts](https://www.npmjs.com/package/react-loader-ts) is a `TypeScript/React` library that offers a customizable `Loader` component, a `LoaderContext` to manage global loader state, and other helpful utilities.
 
-Now fully updated for **React 19**, with modernized theming via CSS variables and native dark mode support!
+Now fully updated for **React 19**, with modernized theming via CSS variables, native dark mode support, and optimized CSS build!
 
 ## Installation
 
@@ -20,13 +20,14 @@ yarn add react-loader-ts
 npm install react-loader-ts
 ```
 
-## Features (v2.0.0)
+## Features (v2.0.2)
 
 - ✅ React 19 compatible
 - 🎨 Native CSS custom properties for loader customization
 - 🌙 Native dark mode support with `light-dark()`
 - 🧼 Cleaned-up API: removed inline styles in favor of CSS class customization
 - 🧩 Strict type safety using `Variant` union type
+- 🚀 Optimized CSS build via PostCSS (autoprefixer + cssnano)
 - 🪶 Lightweight and dependency-free
 
 ## Usage
@@ -35,7 +36,7 @@ _To enable the loader context, wrap your app with `LoaderProvider`:_
 
 ```tsx
 import { LoaderProvider } from "react-loader-ts";
-import "react-loader-ts/lib/esm/styles/global.css";
+import "react-loader-ts/styles/global.css";
 
 export default function Application() {
   return (
@@ -59,6 +60,14 @@ export function ExampleComponent() {
     </>
   );
 }
+```
+
+### Importing the global CSS
+
+Be sure to import the generated global CSS from:
+
+```css
+import "react-loader-ts/styles/global.css";
 ```
 
 ## Customization via CSS Variables
@@ -151,6 +160,16 @@ export const VARIANTS = ["circle-dots", "dots"] as const;
 
 export type Variant = (typeof VARIANTS)[number];
 ```
+
+## CSS Build and Publishing
+
+- **PostCSS Build**: Styles located in `src/styles/global.css` are processed with PostCSS using Autoprefixer and cssnano, producing an optimized `dist/styles/global.css`.
+- **Exports**: The CSS file is exposed under the subpath `"react-loader-ts/styles/global.css"` in `package.json`'s `exports`.
+- **Usage**: Consumers should import the CSS directly:
+
+  ```js
+  import "react-loader-ts/styles/global.css";
+  ```
 
 ## License
 
